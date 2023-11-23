@@ -1,0 +1,343 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --title-color: hsl(0, 0%, 100%);
+  --text-color: hsl(0, 0%, 60%);
+  --body-color: hsl(0, 0%, 0%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", sans-serif;
+  --h1-font-size: 1.5rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1152px) {
+  :root {
+    --h1-font-size: 2.25rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  margin-inline: 1.5rem;
+}
+
+.main {
+  overflow: hidden;
+}
+
+/*=============== HEADER & NAV ===============*/
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: var(--body-color);
+  border-bottom: 1px solid var(--text-color);
+  z-index: var(--z-fixed);
+}
+.nav {
+  display: flex;
+  margin-inline: 2rem;
+  justify-content: space-between;
+  height: var(--header-height);
+  align-items: center;
+}
+.nav-logo {
+  color: var(--title-color);
+  letter-spacing: 0.45rem;
+  font-weight: var(--font-semi-bold);
+}
+
+.nav__close,
+.nav__toggle {
+  color: var(--title-color);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+@media screen and (max-width: 1023px) {
+  .nav-menu {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    background-color: var(--body-color);
+    border-bottom: 1px solid var(--title-color);
+    width: 100%;
+    padding-block: 4.5rem 3.5rem;
+    transition: top 0.4s;
+  }
+}
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1rem;
+}
+.nav-link {
+  color: var(--text-color);
+  letter-spacing: 3px;
+  transition: color 0.3s;
+}
+.nav-link:hover,
+.nav-social-link:hover {
+  color: var(--title-color);
+}
+.nav-social {
+  display: flex;
+  justify-content: center;
+  column-gap: 1.5rem;
+  margin-top: 3rem;
+}
+.nav-social-link {
+  font-size: 1.25rem;
+  color: var(--text-color);
+  transition: color 0.4s;
+}
+
+.nav__close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+}
+/* Navigation for mobile devices */
+
+/* Show menu */
+.show-menu {
+  /* top: var(--header-height); */
+  top: 0;
+}
+
+/*=============== HOME ===============*/
+.home__container,
+.home__data,
+.home__content,
+.home__images,
+.home__info-content {
+  display: grid;
+}
+
+.home__data {
+  padding-block: 5rem 3.5rem;
+  row-gap: 3.5rem;
+  text-align: center;
+}
+.home__content {
+  row-gap: 0.75rem;
+}
+.home__stars {
+  display: flex;
+  column-gap: 0.25rem;
+  justify-content: center;
+}
+.home__title {
+  font-size: var(--h1-font-size);
+  color: var(--title-color);
+}
+
+.home_price {
+  font-size: var(--h3-font-size);
+}
+
+.home__button {
+  border: 1px solid var(--text-color);
+  padding: 1rem 1.5rem;
+  justify-self: center;
+  color: var(--title-color);
+  font-size: var(--small-font-size);
+  letter-spacing: 3px;
+  font-weight: var(--font-semi-bold);
+  display: inline-flex;
+  align-items: center;
+  column-gap: 1.5rem;
+  transition: border-color 0.4s;
+}
+
+.home__button i {
+  font-size: var(--normal-font-size);
+}
+
+.home__button:hover {
+  border-color: var(--title-color);
+}
+.home__images {
+  width: 180px;
+  margin-inline: auto;
+}
+.home__info {
+  display: flex;
+  align-items: center;
+  column-gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.home__info img {
+  width: 120px;
+}
+
+.home__info-content {
+  row-gap: 1.5rem;
+}
+.home__info-description {
+  font-size: var(--small-font-size);
+}
+.home__button-link {
+  color: var(--text-color);
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semi-bold);
+  letter-spacing: 1px;
+  transition: color 0.4s;
+}
+
+.home__button-link:hover {
+  color: var(--title-color);
+}
+/* Swiper class */
+.swiper {
+  margin-inline: initial;
+}
+
+.swiper-pagination-bullet {
+  width: 1rem;
+  height: 0.15rem;
+  border-radius: 0;
+  background-color: var(--text-color);
+  opacity: 1;
+  transition: background-color 0.3s, width 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+  width: 1.5rem;
+  background-color: var(--title-color);
+}
+
+/*=============== SCROLL BAR ===============*/
+/* ::-webkit-scrollbar {
+  width: 0.6rem;
+  background—color: hsl(0, 0%, 12%);
+}
+::-webkit-scrollbar-thumb {
+  background—color: hsl(0, 0%, 30%);
+} */
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 320px) {
+  .container {
+    margin-inline: 1rem;
+  }
+  .home__info {
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+  .home__info-description {
+    padding: 12px;
+  }
+  .home__button-link {
+    justify-self: center;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 575px) {
+  .home__container {
+    grid-template-columns: 400px;
+    justify-content: center;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1023px) {
+  .nav {
+    height: 5rem;
+  }
+  .nav__close,
+  .nav__toggle {
+    display: none;
+  }
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    column-gap: 4rem;
+  }
+  .nav-list {
+    flex-direction: row;
+    column-gap: 4rem;
+  }
+  .nav-social {
+    margin: 0px;
+  }
+  .home__container {
+    height: 100vh;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    column-gap: 4rem;
+  }
+  .home__info {
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+  .home__info img {
+    align-self: self-start;
+    width: 200px;
+    padding: 0px;
+  }
+  .home__images {
+    padding-top: 5rem;
+    width: 300px;
+  }
+  .home__info-description {
+    font-size: var(--normal-font-size);
+  }
+}
+
+/* For taller devices */
